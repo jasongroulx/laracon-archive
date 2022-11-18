@@ -3,6 +3,7 @@
     "scripts": {
         "dev": "vite",
         "test": "vitest",
+        "webstorm-integration": "vitest --watch --reporter=dot --reporter=json --outputFile=.vitest-result.json",
         "build": "vite build"
     },
     "devDependencies": {
@@ -11,6 +12,7 @@
         "@inertiajs/progress": "^0.2.7",
         "@tailwindcss/forms": "^0.5.2",
         "@tailwindcss/typography": "^0.5.2",
+        "@testing-library/vue": "^6.6.1",
         "@vitejs/plugin-vue": "^3.0.0",
         "@vue/test-utils": "^2.0.0-rc.18",
         "autoprefixer": "^10.4.7",
