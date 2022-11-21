@@ -1,12 +1,13 @@
 import {render} from '@testing-library/vue'
 import VideoSection from "./VideoSection.vue";
 import { describe, expect, it } from "vitest";
+import {IVideo} from "../Interfaces";
 
 describe('VideoSection', () => {
 
     const title = 'Recommended'
-    const videos = [
-        { title: 'Video 1', duration: '1:45', id: 1 },
+    const videos: IVideo[] = [
+        { title: 'Video 1', duration: '1:45', id: 1},
         { title: 'Video 2', duration: '1:46', id: 2 },
         { title: 'Video 3', duration: '1:47', id: 3 },
     ]

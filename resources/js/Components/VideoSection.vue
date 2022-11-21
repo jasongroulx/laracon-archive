@@ -5,11 +5,14 @@
 </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Video from './Video.vue';
+import { IVideo } from "../Interfaces";
 
-defineProps({
-    title: String,
-    videos: Array,
-})
+interface VideoSectionProps {
+    title: string
+    videos: IVideo[]
+}
+
+defineProps<VideoSectionProps>()
 </script>
