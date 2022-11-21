@@ -2,9 +2,7 @@
     <VideoSection title="Recommended" :videos="videos"/>
 </template>
 
-<script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
-import Video from '../Components/Video.vue';
+<script setup lang="ts">
 import VideoSection from '../Components/VideoSection.vue';
 
 defineProps({

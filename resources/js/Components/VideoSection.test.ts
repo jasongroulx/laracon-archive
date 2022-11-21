@@ -1,6 +1,6 @@
 import {render} from '@testing-library/vue'
 import VideoSection from "./VideoSection.vue";
-import { describe, expect, it } from "vitest";
+import { describe, it } from "vitest";
 import {IVideo} from "../Interfaces";
 
 describe('VideoSection', () => {
