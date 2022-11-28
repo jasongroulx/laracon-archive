@@ -1,7 +1,8 @@
 <template>
-    <div class="border-2 border-gray-100 w-72 h-56">
+    <div class="border-2 border-gray-100">
         <div>{{ video.title }}</div>
         <div>{{ video.duration }}</div>
+        <img :src="video.thumbnailUrl" :alt="video.title">
         <Link :href="`/watch/${video.id}`" class="rounded-l-md bg-blue-900 text-white">Play Now</Link>
     </div>
 </template>

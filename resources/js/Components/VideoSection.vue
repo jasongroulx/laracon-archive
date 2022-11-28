@@ -1,7 +1,9 @@
 <template>
 <div>
-    <h2>{{ title }}</h2>
+    <h2 class="text-2xl">{{ title }}</h2>
+    <div class="grid grid-cols-3">
     <Video v-for="video of videos" :video="video" />
+    </div>
 </div>
 </template>
 

@@ -7,9 +7,9 @@ describe('VideoSection', () => {
 
     const title = 'Recommended'
     const videos: IVideo[] = [
-        { title: 'Video 1', duration: '1:45', id: 1},
-        { title: 'Video 2', duration: '1:46', id: 2 },
-        { title: 'Video 3', duration: '1:47', id: 3 },
+        { title: 'Video 1', duration: '1:45', id: 1, thumbnailUrl: 'http://videos/thumbnail_1.jpg', src: 'https://videoUrl1.com'},
+        { title: 'Video 2', duration: '1:46', id: 2, thumbnailUrl: 'http://videos/thumbnail_2.jpg', src: 'https://videoUrl2.com'},
+        { title: 'Video 3', duration: '1:47', id: 3, thumbnailUrl: 'http://videos/thumbnail_3.jpg', src: 'https://videoUrl3.com'},
     ]
 
     const {getByText} = render(VideoSection, {
