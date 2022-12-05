@@ -3,5 +3,5 @@ export interface IVideo {
     title: string
     duration: string
     thumbnailUrl: string
-    src: string,
+    url: string,
 }

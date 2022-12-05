@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Talk;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,7 +20,14 @@ Route::get('/', function () {
     return Inertia::render('Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
+        'videos' => Talk::all()
     ]);
+});
+
+Route::get('/watch/{talk}', function (Talk $talk) {
+   return Inertia::render('WatchTalk', [
+       'video' => $talk
+   ]);
 });
 
 Route::middleware([

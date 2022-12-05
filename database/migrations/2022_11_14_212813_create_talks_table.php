@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('url');
-            $table->unsignedSmallInteger('length');
-            $table->foreignId('conference_id')->constrained();
-            $table->foreignId('speaker_id')->constrained();
+            $table->string('duration');
+            $table->string('thumbnailUrl');
+//            $table->foreignId('conference_id')->constrained();
+//            $table->foreignId('speaker_id')->constrained();
             $table->timestamps();
         });
     }
