@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Talk;
+use App\Models\Speaker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TalkSeeder extends Seeder
+class SpeakerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class TalkSeeder extends Seeder
      */
     public function run()
     {
-        Talk::factory(20)->create();
+        Speaker::factory(20)->create();
     }
 }

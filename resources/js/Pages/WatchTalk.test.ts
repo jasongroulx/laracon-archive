@@ -18,7 +18,7 @@ describe('WatchTalk', () => {
     })
 
     it('should render an iframe for the video', function () {
-        const element: HTMLIFrameElement = getByTitle(video.title)
+        const element = getByTitle<HTMLIFrameElement>(video.title)
 
         expect(element.tagName).toEqual('IFRAME')
         expect(element.getAttribute("src")).toBe(video.url);

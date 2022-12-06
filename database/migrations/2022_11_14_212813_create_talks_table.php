@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('url');
             $table->string('duration');
             $table->string('thumbnailUrl');
-//            $table->foreignId('conference_id')->constrained();
-//            $table->foreignId('speaker_id')->constrained();
+            $table->foreignId('conference_id')->constrained();
+            $table->foreignId('speaker_id')->constrained();
             $table->timestamps();
         });
     }

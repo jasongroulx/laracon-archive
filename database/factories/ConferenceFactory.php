@@ -17,7 +17,8 @@ class ConferenceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'Laracon ' . $this->faker->company(),
+            'year' => $this->faker->year()
         ];
     }
 }
