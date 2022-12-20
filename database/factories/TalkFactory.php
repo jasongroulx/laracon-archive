@@ -20,6 +20,9 @@ class TalkFactory extends Factory
         'AxlqFgY0BGY',
         'dccDqpmKVFM',
         '3eyftAR5ilo',
+        '-qzSKMAbqiQ',
+        '3MABSYPxpbs',
+        '8oC9AOPAfzI'
     ];
 
     public function definition(): array

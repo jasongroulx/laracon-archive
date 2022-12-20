@@ -1,6 +1,6 @@
 <template>
     <div class="relative group overflow-hidden hover:scale-110 transition-all ease-in-out duration-300">
-        <img class="object-cover group-hover:scale-125 transition-all ease-in-out duration-500" :src="video.thumbnailUrl" :alt="video.title">
+        <img class="object-cover group-hover:scale-125 transition-all ease-in-out duration-500 w-full" :src="video.thumbnailUrl" :alt="video.title">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-50 group-hover:opacity-80"></div>
         <div class="text-white absolute bottom-0 p-5">
             <p class="text-xl mb-1 capitalize">{{ video.title }}</p>
