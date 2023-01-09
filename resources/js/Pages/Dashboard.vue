@@ -29,10 +29,11 @@ defineProps<DashboardProps>()
                             <th>Description</th>
                             <th>Speaker</th>
                             <th>Conference</th>
+                            <th></th>
                         </tr>
                         </thead>
                        <tbody>
-                        <expandable-table-row v-for="video in videos" :key="`video-${video.id}`" :video="video" />
+                        <expandable-table-row v-for="video in videos" :key="`video-${video.id}`" :video="video"></expandable-table-row>
                        </tbody>
                     </table>
                 </div>
