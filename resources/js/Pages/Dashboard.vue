@@ -9,7 +9,6 @@ interface DashboardProps {
     videos: IVideo[]
 }
 
-const state = reactive({titleSortOrderAsc: true})
 defineProps<DashboardProps>()
 </script>
 
@@ -28,7 +27,7 @@ defineProps<DashboardProps>()
                         <thead>
                         <tr>
                             <th>
-                                <sortable-table-header title="Title" />
+                                <sortable-table-header title="Title" @sorted="() => {}" />
                             </th>
                             <th>Description</th>
                             <th>Speaker</th>
