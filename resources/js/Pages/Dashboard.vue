@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { defineProps } from 'vue';
+import { defineProps, reactive } from 'vue';
 import {IVideo} from "../Interfaces";
 import ExpandableTableRow from "../Components/ExpandableTableRow.vue";
 
@@ -8,6 +8,7 @@ interface DashboardProps {
     videos: IVideo[]
 }
 
+const state = reactive({titleSortOrderAsc: true})
 defineProps<DashboardProps>()
 </script>
 
@@ -25,7 +26,17 @@ defineProps<DashboardProps>()
                     <table>
                         <thead>
                         <tr>
-                            <th>Title</th>
+                            <th>
+                                Title
+                                <div class="inline" @click="state.titleSortOrderAsc = !state.titleSortOrderAsc">
+                                    <svg v-if="state.titleSortOrderAsc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                    <svg v-if="!state.titleSortOrderAsc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                                    </svg>
+                                </div>
+                            </th>
                             <th>Description</th>
                             <th>Speaker</th>
                             <th>Conference</th>
