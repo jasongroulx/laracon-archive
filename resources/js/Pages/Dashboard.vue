@@ -2,6 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { defineProps } from 'vue';
 import {IVideo} from "../Interfaces";
+import ExpandableTableRow from "../Components/ExpandableTableRow.vue";
 
 interface DashboardProps {
     videos: IVideo[]
@@ -31,12 +32,7 @@ defineProps<DashboardProps>()
                         </tr>
                         </thead>
                        <tbody>
-                       <tr v-for="video in videos" :key="`video-${video.id}`" class="py-2 px-4">
-                           <td class="p-2 font-bold text-lg">{{ video.title }}</td>
-                           <td class="p-2 text-gray-600">{{ video.description }}</td>
-                           <td class="p-2">{{ video.speaker.full_name}}</td>
-                           <td class="p-2">{{ video.conference.name }} ({{video.conference.year}})</td>
-                       </tr>
+                        <expandable-table-row v-for="video in videos" :key="`video-${video.id}`" :video="video" />
                        </tbody>
                     </table>
                 </div>
