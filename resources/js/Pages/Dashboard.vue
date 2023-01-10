@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { defineProps, reactive } from 'vue';
+import { defineProps, reactive, computed } from 'vue';
 import {IVideo} from "../Interfaces";
 import ExpandableTableRow from "../Components/ExpandableTableRow.vue";
 import SortableTableHeader from "../Components/SortableTableHeader.vue";
@@ -9,7 +9,25 @@ interface DashboardProps {
     videos: IVideo[]
 }
 
-defineProps<DashboardProps>()
+const props = defineProps<DashboardProps>()
+const state = reactive({heading: null, direction: null})
+
+const onSort = (heading, direction) => {
+    state.heading = heading
+    state.direction = direction
+    console.log([direction, heading])
+}
+
+const sortedVideos = computed(() => {
+    if (!state.heading) {
+        return props.videos;
+    }
+
+    return props.videos.sort((vidA, vidB) => {
+        // return vidA[state.heading] < vidB[state.heading];
+    })
+})
+
 </script>
 
 <template>
@@ -27,11 +45,17 @@ defineProps<DashboardProps>()
                         <thead>
                         <tr>
                             <th>
-                                <sortable-table-header title="Title" @sorted="() => {}" />
+                                <sortable-table-header title="Title" @sorted="onSort('title', $event)" />
                             </th>
-                            <th>Description</th>
-                            <th>Speaker</th>
-                            <th>Conference</th>
+                            <th>
+                                <sortable-table-header title="Description" @sorted="onSort('description', $event)"/>
+                            </th>
+                            <th>
+                                <sortable-table-header title="Speaker" @sorted="onSort('speaker.full_name', $event)" />
+                            </th>
+                            <th>
+                                <sortable-table-header title="Conference" @sorted="onSort('conference.name', $event)"/>
+                            </th>
                             <th></th>
                         </tr>
                         </thead>
