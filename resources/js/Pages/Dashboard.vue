@@ -22,10 +22,13 @@ const sortedVideos = computed(() => {
     if (!state.heading) {
         return props.videos;
     }
+    console.log('heading', state.heading)
+    // return state.direction === "asc" ? [props.videos[1]] : [props.videos[0]]
 
-    return props.videos.sort((vidA, vidB) => {
-        // return vidA[state.heading] < vidB[state.heading];
-    })
+    let s = props.videos.sort((a, b) => {
+        return a[state.heading].localeCompare(b[state.heading]);
+    });
+    return state.direction === 'asc' ? s : s.reverse();
 })
 
 </script>
@@ -60,7 +63,7 @@ const sortedVideos = computed(() => {
                         </tr>
                         </thead>
                        <tbody>
-                        <expandable-table-row v-for="video in videos" :key="`video-${video.id}`" :video="video"></expandable-table-row>
+                        <expandable-table-row v-for="video in sortedVideos" :key="`video-${video.id}`" :video="video"></expandable-table-row>
                        </tbody>
                     </table>
                 </div>
