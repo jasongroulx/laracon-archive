@@ -22,12 +22,11 @@ const sortedVideos = computed(() => {
     if (!state.heading) {
         return props.videos;
     }
-    console.log('heading', state.heading)
-    // return state.direction === "asc" ? [props.videos[1]] : [props.videos[0]]
 
     let s = props.videos.sort((a, b) => {
         return a[state.heading].localeCompare(b[state.heading]);
     });
+
     return state.direction === 'asc' ? s : s.reverse();
 })
 
