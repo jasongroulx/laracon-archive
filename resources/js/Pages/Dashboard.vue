@@ -4,10 +4,12 @@ import { defineProps, reactive, computed } from 'vue';
 import {IVideo} from "../Interfaces";
 import ExpandableTableRow from "../Components/ExpandableTableRow.vue";
 import SortableTableHeader from "../Components/SortableTableHeader.vue";
-import {get} from 'lodash'
+import {get} from 'lodash';
+import {IPaginatedCollection} from "../Interfaces/IPaginatedCollection";
+import {Link} from "@inertiajs/inertia-vue3";
 
 interface DashboardProps {
-    videos: IVideo[]
+    videos: IPaginatedCollection<IVideo>
 }
 
 const props = defineProps<DashboardProps>()
@@ -21,12 +23,10 @@ const onSort = (heading, direction) => {
 
 const sortedVideos = computed(() => {
     if (!state.heading) {
-        return props.videos;
+        return props.videos.data;
     }
 
-    let s = props.videos.sort((a, b) => {
-
-
+    let s = props.videos.data.sort((a, b) => {
         return get(a, state.heading).localeCompare(get(b, state.heading));
     });
 
@@ -68,6 +68,9 @@ const sortedVideos = computed(() => {
                         <expandable-table-row v-for="video in sortedVideos" :key="`video-${video.id}`" :video="video"></expandable-table-row>
                        </tbody>
                     </table>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <Link :href="link.url" class="border rounded py-0.5 px-1" v-for="link in videos.links" :key="`link-${link.label}`" v-html="link.label"></Link>
+                    </div>
                 </div>
             </div>
         </div>

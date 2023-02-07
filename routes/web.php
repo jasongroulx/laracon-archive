@@ -38,6 +38,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard', ['videos' => Talk::with(['speaker', 'conference'])->get()]);
+        return Inertia::render('Dashboard', ['videos' => Talk::with(['speaker', 'conference'])->paginate()]);
     })->name('dashboard');
 });
