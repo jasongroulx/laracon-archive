@@ -4,6 +4,7 @@ import { defineProps, reactive, computed } from 'vue';
 import {IVideo} from "../Interfaces";
 import ExpandableTableRow from "../Components/ExpandableTableRow.vue";
 import SortableTableHeader from "../Components/SortableTableHeader.vue";
+import {get} from 'lodash'
 
 interface DashboardProps {
     videos: IVideo[]
@@ -24,7 +25,9 @@ const sortedVideos = computed(() => {
     }
 
     let s = props.videos.sort((a, b) => {
-        return a[state.heading].localeCompare(b[state.heading]);
+
+
+        return get(a, state.heading).localeCompare(get(b, state.heading));
     });
 
     return state.direction === 'asc' ? s : s.reverse();
